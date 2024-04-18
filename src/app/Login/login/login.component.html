@@ -1,0 +1,62 @@
+<div class="auth-page">
+    <div class="container page">
+      <div class="row">
+        <div class="col-md-6 offset-md-3 col-xs-12">
+          <h1 class="text-xs-center">{{ title }}</h1>
+          <p class="text-xs-center">
+            <ng-container *ngIf="authType === 'register'">
+              <a routerLink="/login">Have an account?</a>
+            </ng-container>
+          
+            <ng-container *ngIf="authType === 'login'">
+              <a routerLink="/register">Need an account?</a>
+            </ng-container>
+          </p>
+          
+          <app-list-errors [errors]="errors"></app-list-errors>
+          <form [formGroup]="authForm" (ngSubmit)="submitForm()">
+            <fieldset [attr.disabled]="isSubmitting ? true : null">
+              <fieldset class="form-group" *ngIf="authType === 'register'">
+                <input
+                  formControlName="username"
+                  placeholder="Username"
+                  class="form-control form-control-lg"
+                  type="text"
+                />
+              </fieldset>
+              <fieldset class="form-group"  *ngIf="authType === 'register'">
+                <input
+                  formControlName="phonenumber"
+                  placeholder="PhoneNumber"
+                  class="form-control form-control-lg"
+                  type="text"
+                /></fieldset>
+              <fieldset class="form-group">
+                <input
+                  formControlName="email"
+                  placeholder="Email"
+                  class="form-control form-control-lg"
+                  type="text"
+                />
+              </fieldset>
+              <fieldset class="form-group">
+                <input
+                  formControlName="password"
+                  placeholder="Password"
+                  class="form-control form-control-lg"
+                  type="password"
+                />
+              </fieldset>
+              <button
+                class="btn btn-lg btn-primary float-right"
+                [disabled]="!authForm.valid"
+                type="submit"
+              >
+                {{ title }}
+              </button>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

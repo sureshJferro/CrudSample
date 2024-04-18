@@ -1,0 +1,14 @@
+/* src/app/home/home.component.css */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+  }
+  .home{
+    background-color: antiquewhite;
+  }
